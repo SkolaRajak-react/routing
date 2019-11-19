@@ -5,17 +5,17 @@ import UsersPage from './pages/Users'
 import Navbar from './components/Navbar'
 import UserLayout from './layouts/UserLayout'
 import PrivateRoute from './privateRoute'
-
+import ProductList from './pages/Products'
 function App() {
-  const broj = 20
   return (
     <div className="App">
       <Router>
         <Navbar/>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path='/' render={() => <HomePage hasError={false}/>} />
         <PrivateRoute exact path='/users' RenderComponent={UsersPage} />
         <Route path='/users/:id' component={UsersPage} />
         <Route path='/nestedUsers/:id' component={UserLayout} />
+        <Route path='/products' component={ProductList} />
       </Router>
     </div>
   );
